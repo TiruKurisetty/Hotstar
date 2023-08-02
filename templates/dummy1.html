@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Document</title>
+    {% endblock %}
+    
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+rel="stylesheet"
+/>
+</head>
+<style>
+    body
+  {
+      text-align: center;
+      font-size: 20px;
+  }
+  aside
+  {
+      float:left;
+      background-color:rgb(0, 0, 2);
+      height:620px;
+      width:35vh;
+      position:sticky;
+      top: 0px;  
+  }
+  aside:hover
+  {
+    backdrop-filter:blur(10);
+  }
+  a
+  {
+       color:rgb(244, 241, 244);
+       font-size:25px;
+       display: block;
+       padding:10px 5px; 
+  }
+  a:hover
+  {
+    transform: scale(1.1);
+    color: ghostwhite;
+  }
+  
+  .fa-home
+   {
+      color: rgb(239, 240, 245);
+   }
+ 
+#video,.vd,#intro
+{
+  overflow-y: hidden;
+}
+#lines
+{
+  overflow: hidden;
+}
+</style>
+<body>
+    <!--aside-->
+       
+
+    <aside>
+        <a href="{% url 'admin:index' %}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0-yMc9s7MQZ-U1Y41n1cc0wbkdNJBnzIQsA&usqp=CAU" width="150px"></a>
+        
+           <a href="{% url 'home' %}"><i class="fas fa-home"> Home</i></a>
+           {% if user.is_authenticated %}
+           <a href="{% url 'movies' %}">Movies</a>
+           <a href="{% url 'sports' %}"><i class="fa-info-desktop">Sports</i></a>
+           <a href="{% url 'display_profile' %}">Profile</a>
+           <a href="{% url 'change_password' %}">Change password</a>
+           <a href="{% url 'user_logout' %}"><i class="fa-brands fa-google">Logout</i></a>
+           {% else %}
+            <a href="{% url 'registration' %}">Register</a>
+            <a href="{% url 'reset_password' %}">Reset password</a>
+            <a href="{% url 'user_login' %}"><i class="fa-brands fa-google">Login</i></a>
+           {% endif %}
+        </aside>
+    <!--aside-->
+    
+    
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
+></script>
+
+    {% block body_block %}
+    {% endblock %}
+</body>
+</html>

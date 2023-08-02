@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    <title>Document</title>
+    {% endblock %}
+    
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+rel="stylesheet"
+/>
+</head>
+<style>
+  .container-fluid
+  {
+    background-color: rgb(26, 8, 141);
+    color:white;
+    height: 70px;
+    font-size: 25px;
+    margin:0px 20px;
+  }
+  a
+  {
+    margin:0px 25px;
+  }
+  .navbar
+  {
+    position: sticky;
+    top:0px;
+  }
+  body::-webkit-scrollbar{
+    display:none;
+  }
+</style>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <!-- Container wrapper -->
+  <div class="container-fluid" >
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'admin:index' %}">
+        <img
+          src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg"
+          height="60px"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+  
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+       
+          <a class="nav-link" href="{% url 'registration' %}">Registration</a>
+     {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'user_logout' %}">Logout</a>
+          <a class="nav-link" href="{% url 'movies' %}">Movies</a>
+     {% else %}
+          <a class="nav-link" href="{% url 'user_login' %}">Login</a>
+     {% endif %}
+      
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+{% if user.is_authenticated %}
+      <div class="dropdown">
+        <a
+          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          href="#"
+          id="navbarDropdownMenuAvatar"
+          role="button"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+            class="rounded-circle"
+            height="100px"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+          />
+        </a>
+        <ul
+          class="dropdown-menu dropdown-menu-end"
+          aria-labelledby="navbarDropdownMenuAvatar"
+        >
+          <li>
+            <a class="dropdown-item" href="{% url 'display_profile' %}">My profile</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="#">Change password</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% url 'user_logout' %}">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+   
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
+></script>
+
+    {% block body_block %}
+    {% endblock %}
+</body>
+</html>

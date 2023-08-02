@@ -1,0 +1,147 @@
+{% extends 'dummy1.html' %}
+
+{% block title %}
+<title>registration</title>
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+    <div class="bubbles">
+        <span style="--i:11;"></span>
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:23;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:19;"></span>
+        <span style="--i:20;"></span>
+        <span style="--i:22;"></span>
+        <span style="--i:25;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:21;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:26;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:28;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:1;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:23;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:19;"></span>
+        <span style="--i:20;"></span>
+        <span style="--i:22;"></span>
+        <span style="--i:25;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:21;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:26;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:28;"></span>
+    </div>
+    <div>
+        <center>
+            <form method="POST" enctype="multipart/form-data">
+              <marquee behavior="alternate">Registration Form</marquee>  
+                {% csrf_token %}
+                {{umf.as_p}}
+                {{pmf.as_p}}
+                <input type="submit" value="Registration" class="btn btn-success">
+            </form>
+        </center>
+    </div>
+</div>
+<style>
+    form{
+        border: 2px solid black;
+        border-radius: 20px;
+        height:fit-content;
+        width:600px;
+        color: #fff;
+        font-size:25px;
+        position: relative;
+        top: 100px;
+        left: 50px;
+        position: absolute;
+        left:300px;
+        top:10px;
+        background: transparent;
+        padding: 10px 20px;
+        border-left:10px ridge #ff2d75;
+        border-top:10px ridge #4fc3d4 ;
+        border-bottom:10px ridge #ff2d75;
+        border-right:10px ridge #4fc3d4 ;
+    }
+
+    input
+    {
+        background: transparent;
+        color: #fff;
+        border: none;
+        border-bottom:3px solid #4fc3dc;
+    }
+    marquee
+    {
+        background:linear-gradient(90deg,#4fc3d4,#ff2d75) scroll;
+        border-radius: 20px;
+        margin: 0px 0 20px 0;
+
+    }
+   *
+   {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+   body{
+    height:615px;
+    background: #0c192c;
+   }
+   .container
+   {
+    position: relative;
+    width:83%;
+    margin-left: 50px;
+    height:615px;
+    overflow: hidden;
+   }
+   .bubbles{
+    position: relative;
+    display: flex;
+   }
+   .bubbles span{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: #4fc3d4;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #4fc3dc44,0 0 50px #4fc3dc,0 0 100px #4fc3dc;
+    animation:animate 5s linear infinite ;
+    animation-duration: calc(128s / var(--i));
+}
+.bubbles span:nth-child(even){
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544,0 0 50px #ff2d75,0 0 100px #ff2d75;
+}
+@keyframes animate{
+    0%{
+        transform: translateY(100vh) scale(0);
+    }
+    100%{
+        transform: translateY(-10vh) scale(0.9);
+    }
+}    
+</style>
+{% endblock %}

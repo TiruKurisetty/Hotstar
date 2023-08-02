@@ -1,0 +1,65 @@
+{% extends 'dummy1.html' %}
+
+{% block title %}
+<title>display_profile</title>
+{% endblock %}
+
+{% block body_block %}
+<div class="slider">
+    <video autoplay loop muted >
+        <source src="../media/pexels-zch-12722063 (2160p).mp4" type="video/mp4">
+    </video>
+    <div class="slider-container">
+        <div class="pro">
+        <img src="{{PO.profile_pic.url}}" alt="Invalid" srcset="" height="300px" width="500px" border-radious="20px" class="im">
+        <h1>Name :  {{UO.username}} </h1>
+        <h1>Email :  {{UO.email}} </h1>
+        <h1>Address :  {{PO.address}} </h1>
+        </div>
+    </div>
+</div>
+
+<style>
+   .pro{
+    
+    border-radius: 20px 0 20px 0;
+    width: fit-content;
+    height: fit-content;
+    background: transparent;
+    backdrop-filter: blur(20px);
+   }
+   .im{
+    border-radius: 70%;
+    border:10px ridge crimson;
+    margin-left: 50px;
+   }
+   *
+   {
+    margin: 0;
+    padding: 0;
+   }
+   body{
+     font-family: 'Poppins',sans-serif;
+     position: relative;
+     height:615px;
+   }
+   .slider{
+    position: relative;
+    top:-619px;
+    left: 210px;
+    width:85%;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+   }
+   
+   .slider-container{
+    position: absolute;
+    top: 10px;
+    left: 300px;
+   }
+</style>
+{% endblock %}
